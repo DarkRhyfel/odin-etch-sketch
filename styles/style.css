@@ -1,15 +1,43 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: cadetblue;
+}
+
+h1 {
+    text-align: center;
+    font-size: 75px;
+}
+
 .container,
-.row {
+.row,
+.grid {
     display: flex;
 }
 
-.container {
+.container,
+.grid {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid {
+    margin: 0;
+    padding: 0;
+    min-width: 480px;
+    min-height: 480px;
+    border: 1px solid black;
 }
 
 .tile {
+    box-sizing: border-box;
     margin: 0;
-    border: 1px solid black;
-    min-width: 50px;
-    min-height: 50px;
+    border: 0;
+    min-width: 30px;
+    min-height: 30px;
+    flex: 0 0 auto;
+}
+
+.colored {
+    background-color: black;
 }
