@@ -1,0 +1,15 @@
+.container,
+.row {
+    display: flex;
+}
+
+.container {
+    flex-direction: column;
+}
+
+.tile {
+    margin: 0;
+    border: 1px solid black;
+    min-width: 50px;
+    min-height: 50px;
+}
