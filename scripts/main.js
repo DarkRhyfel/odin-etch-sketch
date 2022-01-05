@@ -5,12 +5,26 @@ const grid = document.querySelector('div.grid');
 generateGrid();
 
 const clearOption = document.querySelector('#clear');
+const changeOption = document.querySelector('#change');
+const currentShow = document.querySelector('.current');
+
+// Function to get a random color
+function getRandomRGBColor() {
+    let randomRed = Math.floor(Math.random() * 255);
+    let randomBlue = Math.floor(Math.random() * 255);
+    let randomGreen = Math.floor(Math.random() * 255);
+
+    return `rgb(${randomRed}, ${randomBlue}, ${randomGreen})`;
+}
+
 
 // Function to color a div when mouse enters it
 function colorTile(e) {
     let tile = e.target;
 
-    tile.classList.add('colored');
+    let currentColor = currentShow.classList.contains('black') ? 'rgb(0, 0, 0)' : getRandomRGBColor();
+
+    tile.setAttribute('style', `background-color: ${currentColor}`);
 }
 
 // Function to add divs to container
@@ -53,3 +67,16 @@ function clearGrid(e) {
 }
 
 clearOption.addEventListener('click', clearGrid);
+
+// Function to change color of drawing
+function changeColor() {
+    if (currentShow.classList.contains('black')) {
+        currentShow.classList.remove('black');
+        currentShow.classList.add('rainbow');
+    } else {
+        currentShow.classList.remove('rainbow');
+        currentShow.classList.add('black');
+    }
+}
+
+changeOption.addEventListener('click', changeColor);
